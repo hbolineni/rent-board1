@@ -1,0 +1,6 @@
+{
+  "name": "Rent Status Board",
+  "description": "Every month's rent, seen before it slips. Single-page rent status tracking and same-day follow up for home owners in Bengaluru.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-marigold: #E08A1E;
+    --color-teak: #8A5A2B;
+    --color-nilgiri: #1E2A38;
+    --color-cream: #FAF3E6;
+    --color-ink: #1A1A1A;
+  }
+
+  body {
+    background-color: #FAF3E6;
+    color: #1A1A1A;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Instrument Serif', Georgia, serif;
+  }
+
+  .font-script {
+    font-family: 'Caveat', cursive;
+  }
+}
+
+/* Film grain texture using SVG feTurbulence */
+.film-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  z-index: 1;
+}
+
+/* Huge outline serif typography for fallbacks */
+.text-outline-serif {
+  font-family: 'Instrument Serif', Georgia, serif;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(250, 243, 230, 0.4);
+}
+
+.text-outline-dark {
+  font-family: 'Instrument Serif', Georgia, serif;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(224, 138, 30, 0.5);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
